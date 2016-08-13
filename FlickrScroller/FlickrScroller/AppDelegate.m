@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SearchViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    [self.window setRootViewController:[BUtil navigationControllerWithRoot:[[SearchViewController alloc] initWithNibName:nil bundle:nil]]];
     return YES;
 }
 
@@ -42,4 +46,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+@end
+@implementation UIApplication (SharedAppDelegate)
++(AppDelegate*)app{
+    return (AppDelegate*)[UIApplication sharedApplication].delegate;
+}
 @end
