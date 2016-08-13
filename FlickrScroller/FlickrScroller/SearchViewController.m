@@ -19,13 +19,18 @@
 #pragma mark - Private
 - (void) performSearchWithPhrase:(NSString *)searchPhrase{
     DLog(@"Begin search with phrase:%@",searchPhrase);
-    [self.searchBar resignFirstResponder];
     //Add into searches array
     //Load results view controller
 }
+- (void) performSearchFromSearchBarText{
+    [self.searchBar resignFirstResponder];
+    NSString * searchPhrase = self.searchBar.text;
+    self.searchBar.text = nil;
+    [self performSearchWithPhrase:searchPhrase];
+}
 #pragma mark - Actions
 - (void) navbarSearchButtonTapped:(id)sender{
-    [self performSearchWithPhrase:self.searchBar.text];
+    [self performSearchFromSearchBarText];
 }
 
 #pragma mark - LifeCycle
@@ -51,6 +56,6 @@
     }
 }
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar{
-    [self performSearchWithPhrase:searchBar.text];
+    [self performSearchFromSearchBarText];
 }
 @end
