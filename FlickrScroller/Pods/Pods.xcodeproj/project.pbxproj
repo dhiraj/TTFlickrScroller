@@ -1,0 +1,521 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		59C24473E9DB58F95586C454530E4A90 /* Pods-FlickrScrollerUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8262CB2B80B7AB490CBCA66C2D8A0C /* Pods-FlickrScrollerUITests-dummy.m */; };
+		7AA7786BFE777B71D1B37D65C5740FF8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		88DAF65061436FC0A764E4F3E087A19F /* Pods-FlickrScroller-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A35D1E7BEAE1666E8C6A8CF23E6D6509 /* Pods-FlickrScroller-dummy.m */; };
+		94B7887C5863FD7E12CF866C775FEDFB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		9E606C560E12722592B5C935B3FE5156 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
+		EAD4BEFE76FAFBAE096E75121DBFC250 /* Pods-FlickrScrollerTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BB01BCE9EEB6FF2764E511E05EC49A4 /* Pods-FlickrScrollerTests-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		016C78DAB9CDB760C8E1A33464E71A86 /* Pods-FlickrScrollerTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlickrScrollerTests-frameworks.sh"; sourceTree = "<group>"; };
+		2EB339CECEF58EED620B34D2C99488E5 /* Pods-FlickrScroller-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlickrScroller-frameworks.sh"; sourceTree = "<group>"; };
+		39303D46F9A961DCECD2F6EB45B00430 /* Pods-FlickrScrollerTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlickrScrollerTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3AA988D4BB01D88EA1955A0518CEA623 /* Pods-FlickrScrollerTests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlickrScrollerTests-resources.sh"; sourceTree = "<group>"; };
+		3BB01BCE9EEB6FF2764E511E05EC49A4 /* Pods-FlickrScrollerTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlickrScrollerTests-dummy.m"; sourceTree = "<group>"; };
+		4BFFE587F0C0595243BAACC93EC1075B /* Pods-FlickrScroller-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlickrScroller-resources.sh"; sourceTree = "<group>"; };
+		541FCD717006722655A33224AA73637E /* Pods-FlickrScroller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlickrScroller.release.xcconfig"; sourceTree = "<group>"; };
+		5527EC2392F326B152B8F3DBDE1288AE /* Pods-FlickrScrollerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlickrScrollerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		6E6734E095231BDADCBBD2E3FC3DC6D0 /* Pods-FlickrScrollerUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlickrScrollerUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		746B711D9C27C7DCC0FF804870C40123 /* Pods-FlickrScrollerUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlickrScrollerUITests-resources.sh"; sourceTree = "<group>"; };
+		77DD5CFA0952E3E7CC1B0DDE5B796C7A /* libPods-FlickrScrollerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickrScrollerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BF0B5085FD910239E9731DDB89F4AE4 /* Pods-FlickrScrollerTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlickrScrollerTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		7F8262CB2B80B7AB490CBCA66C2D8A0C /* Pods-FlickrScrollerUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlickrScrollerUITests-dummy.m"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A35D1E7BEAE1666E8C6A8CF23E6D6509 /* Pods-FlickrScroller-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlickrScroller-dummy.m"; sourceTree = "<group>"; };
+		A816DCA7625E25A8F0508E75AE64CA88 /* Pods-FlickrScrollerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlickrScrollerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		AC78CB2249892B0991C293E0C7138E38 /* Pods-FlickrScroller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlickrScroller.debug.xcconfig"; sourceTree = "<group>"; };
+		B55A02A281422386B721A8E016ADE563 /* Pods-FlickrScrollerUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlickrScrollerUITests-frameworks.sh"; sourceTree = "<group>"; };
+		B60523E9A68BF15A9E8694BF2EACFEC2 /* Pods-FlickrScrollerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlickrScrollerUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		BD5E5A6FDA58AD81E1B1C5E5A80ADC48 /* Pods-FlickrScroller-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlickrScroller-acknowledgements.plist"; sourceTree = "<group>"; };
+		CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D79734E8143EA689F046FB2EDCCF6764 /* libPods-FlickrScroller.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickrScroller.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6A6ECC5DC64EFFE315D926252326304 /* Pods-FlickrScrollerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlickrScrollerTests.release.xcconfig"; sourceTree = "<group>"; };
+		E74A7396EDFD706CECBF6993B32B95C2 /* Pods-FlickrScroller-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlickrScroller-acknowledgements.markdown"; sourceTree = "<group>"; };
+		ECECB0D0AD39D4199B6706502314A039 /* libPods-FlickrScrollerUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlickrScrollerUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCD3216D7E93A30E579157B53D609C8F /* Pods-FlickrScrollerUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlickrScrollerUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1E0737823D74C48E92C0046A76623A5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AA7786BFE777B71D1B37D65C5740FF8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5F154C83EFC004BF4C5E754893AF8ADE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E606C560E12722592B5C935B3FE5156 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA6B22E86325E74B333FCDDFE80EF233 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B7887C5863FD7E12CF866C775FEDFB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		265E29376F0E7D22E5DAB4B6C326D8AC /* Pods-FlickrScrollerTests */ = {
+			isa = PBXGroup;
+			children = (
+				39303D46F9A961DCECD2F6EB45B00430 /* Pods-FlickrScrollerTests-acknowledgements.markdown */,
+				7BF0B5085FD910239E9731DDB89F4AE4 /* Pods-FlickrScrollerTests-acknowledgements.plist */,
+				3BB01BCE9EEB6FF2764E511E05EC49A4 /* Pods-FlickrScrollerTests-dummy.m */,
+				016C78DAB9CDB760C8E1A33464E71A86 /* Pods-FlickrScrollerTests-frameworks.sh */,
+				3AA988D4BB01D88EA1955A0518CEA623 /* Pods-FlickrScrollerTests-resources.sh */,
+				5527EC2392F326B152B8F3DBDE1288AE /* Pods-FlickrScrollerTests.debug.xcconfig */,
+				E6A6ECC5DC64EFFE315D926252326304 /* Pods-FlickrScrollerTests.release.xcconfig */,
+			);
+			name = "Pods-FlickrScrollerTests";
+			path = "Target Support Files/Pods-FlickrScrollerTests";
+			sourceTree = "<group>";
+		};
+		3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		62EECAA8DF96702373CBC6F3A9DE55CE /* Pods-FlickrScrollerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FCD3216D7E93A30E579157B53D609C8F /* Pods-FlickrScrollerUITests-acknowledgements.markdown */,
+				6E6734E095231BDADCBBD2E3FC3DC6D0 /* Pods-FlickrScrollerUITests-acknowledgements.plist */,
+				7F8262CB2B80B7AB490CBCA66C2D8A0C /* Pods-FlickrScrollerUITests-dummy.m */,
+				B55A02A281422386B721A8E016ADE563 /* Pods-FlickrScrollerUITests-frameworks.sh */,
+				746B711D9C27C7DCC0FF804870C40123 /* Pods-FlickrScrollerUITests-resources.sh */,
+				B60523E9A68BF15A9E8694BF2EACFEC2 /* Pods-FlickrScrollerUITests.debug.xcconfig */,
+				A816DCA7625E25A8F0508E75AE64CA88 /* Pods-FlickrScrollerUITests.release.xcconfig */,
+			);
+			name = "Pods-FlickrScrollerUITests";
+			path = "Target Support Files/Pods-FlickrScrollerUITests";
+			sourceTree = "<group>";
+		};
+		6FE4B20EF33BBD9CD0443D128ADB9709 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D79734E8143EA689F046FB2EDCCF6764 /* libPods-FlickrScroller.a */,
+				77DD5CFA0952E3E7CC1B0DDE5B796C7A /* libPods-FlickrScrollerTests.a */,
+				ECECB0D0AD39D4199B6706502314A039 /* libPods-FlickrScrollerUITests.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				6FE4B20EF33BBD9CD0443D128ADB9709 /* Products */,
+				81F41F4AE61BDEA021846385853EDB85 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		81F41F4AE61BDEA021846385853EDB85 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B89B64C5D775D6AB315142222EFC5B5F /* Pods-FlickrScroller */,
+				265E29376F0E7D22E5DAB4B6C326D8AC /* Pods-FlickrScrollerTests */,
+				62EECAA8DF96702373CBC6F3A9DE55CE /* Pods-FlickrScrollerUITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		B89B64C5D775D6AB315142222EFC5B5F /* Pods-FlickrScroller */ = {
+			isa = PBXGroup;
+			children = (
+				E74A7396EDFD706CECBF6993B32B95C2 /* Pods-FlickrScroller-acknowledgements.markdown */,
+				BD5E5A6FDA58AD81E1B1C5E5A80ADC48 /* Pods-FlickrScroller-acknowledgements.plist */,
+				A35D1E7BEAE1666E8C6A8CF23E6D6509 /* Pods-FlickrScroller-dummy.m */,
+				2EB339CECEF58EED620B34D2C99488E5 /* Pods-FlickrScroller-frameworks.sh */,
+				4BFFE587F0C0595243BAACC93EC1075B /* Pods-FlickrScroller-resources.sh */,
+				AC78CB2249892B0991C293E0C7138E38 /* Pods-FlickrScroller.debug.xcconfig */,
+				541FCD717006722655A33224AA73637E /* Pods-FlickrScroller.release.xcconfig */,
+			);
+			name = "Pods-FlickrScroller";
+			path = "Target Support Files/Pods-FlickrScroller";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3DCAB2B7CDE207B3958B6CB957FCC758 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		046FBE63C0F0F52B71496EC924031714 /* Pods-FlickrScrollerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1AD6FDB92D90024E143A63F3BF9B3F4B /* Build configuration list for PBXNativeTarget "Pods-FlickrScrollerTests" */;
+			buildPhases = (
+				ECD9900EA5B83539EB64AA7E6EE0ACF9 /* Sources */,
+				1E0737823D74C48E92C0046A76623A5D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FlickrScrollerTests";
+			productName = "Pods-FlickrScrollerTests";
+			productReference = 77DD5CFA0952E3E7CC1B0DDE5B796C7A /* libPods-FlickrScrollerTests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		A52B1179C4953021FFFC76E103A58C78 /* Pods-FlickrScroller */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39675F42EDEF41E83B6A1057D3DE6537 /* Build configuration list for PBXNativeTarget "Pods-FlickrScroller" */;
+			buildPhases = (
+				EB1D4FCEF4C0643B3797F98D0988FA21 /* Sources */,
+				BA6B22E86325E74B333FCDDFE80EF233 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FlickrScroller";
+			productName = "Pods-FlickrScroller";
+			productReference = D79734E8143EA689F046FB2EDCCF6764 /* libPods-FlickrScroller.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D8E0E34BF57D54BB6FA239A9AC2E37E4 /* Pods-FlickrScrollerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 56435692A7320A484EE85AD16A8E690E /* Build configuration list for PBXNativeTarget "Pods-FlickrScrollerUITests" */;
+			buildPhases = (
+				1C7644C079BF80E6952572E37950E7BB /* Sources */,
+				5F154C83EFC004BF4C5E754893AF8ADE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-FlickrScrollerUITests";
+			productName = "Pods-FlickrScrollerUITests";
+			productReference = ECECB0D0AD39D4199B6706502314A039 /* libPods-FlickrScrollerUITests.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 6FE4B20EF33BBD9CD0443D128ADB9709 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A52B1179C4953021FFFC76E103A58C78 /* Pods-FlickrScroller */,
+				046FBE63C0F0F52B71496EC924031714 /* Pods-FlickrScrollerTests */,
+				D8E0E34BF57D54BB6FA239A9AC2E37E4 /* Pods-FlickrScrollerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1C7644C079BF80E6952572E37950E7BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59C24473E9DB58F95586C454530E4A90 /* Pods-FlickrScrollerUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB1D4FCEF4C0643B3797F98D0988FA21 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				88DAF65061436FC0A764E4F3E087A19F /* Pods-FlickrScroller-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ECD9900EA5B83539EB64AA7E6EE0ACF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAD4BEFE76FAFBAE096E75121DBFC250 /* Pods-FlickrScrollerTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		230C3C8DC90215B3375227585F224347 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B60523E9A68BF15A9E8694BF2EACFEC2 /* Pods-FlickrScrollerUITests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		2D4A87A2D7FF13DE98403E2667CDFB32 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC78CB2249892B0991C293E0C7138E38 /* Pods-FlickrScroller.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		37C4F51FA7916439BF95B56EB26EC9D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 541FCD717006722655A33224AA73637E /* Pods-FlickrScroller.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3DB18FDFE10A2C061FC6DA19AB6955AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6A6ECC5DC64EFFE315D926252326304 /* Pods-FlickrScrollerTests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		3FA451D268613890FA8A5A03801E11D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		67498AD97D94482C7457C5EDD8A358FF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5527EC2392F326B152B8F3DBDE1288AE /* Pods-FlickrScrollerTests.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CC4C0823507B1FAB8539464DA8E89A58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A816DCA7625E25A8F0508E75AE64CA88 /* Pods-FlickrScrollerUITests.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1AD6FDB92D90024E143A63F3BF9B3F4B /* Build configuration list for PBXNativeTarget "Pods-FlickrScrollerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67498AD97D94482C7457C5EDD8A358FF /* Debug */,
+				3DB18FDFE10A2C061FC6DA19AB6955AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E62115DE8C09934BF8D2FE5D15FED1E /* Debug */,
+				3FA451D268613890FA8A5A03801E11D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39675F42EDEF41E83B6A1057D3DE6537 /* Build configuration list for PBXNativeTarget "Pods-FlickrScroller" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2D4A87A2D7FF13DE98403E2667CDFB32 /* Debug */,
+				37C4F51FA7916439BF95B56EB26EC9D4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		56435692A7320A484EE85AD16A8E690E /* Build configuration list for PBXNativeTarget "Pods-FlickrScrollerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				230C3C8DC90215B3375227585F224347 /* Debug */,
+				CC4C0823507B1FAB8539464DA8E89A58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
