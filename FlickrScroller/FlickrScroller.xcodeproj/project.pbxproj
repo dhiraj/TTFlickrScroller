@@ -62,6 +62,7 @@
 		591E9E251D5EF10F0042A28A /* DebugHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugHelpers.h; sourceTree = "<group>"; };
 		591E9E271D5EF4F90042A28A /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		591E9E281D5EF4F90042A28A /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		591E9E2A1D5EF54D0042A28A /* TranslationStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TranslationStrings.h; sourceTree = "<group>"; };
 		6ADD9098FD9119CFFAFF7BC3 /* Pods-FlickrScrollerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerUITests/Pods-FlickrScrollerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA269F5C46BD5684BB74155B /* Pods-FlickrScrollerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6582BA576B9F7EFB10FD5E2 /* Pods-FlickrScrollerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 				591E9E211D5EF0930042A28A /* Collection View Cells */,
 				591E9E201D5EF08C0042A28A /* View Controllers */,
 				591E9DF01D5EECA10042A28A /* AppDelegate.h */,
+				591E9E2A1D5EF54D0042A28A /* TranslationStrings.h */,
 				591E9DF11D5EECA10042A28A /* AppDelegate.m */,
 				591E9DF91D5EECA10042A28A /* Assets.xcassets */,
 				591E9DFB1D5EECA10042A28A /* LaunchScreen.storyboard */,

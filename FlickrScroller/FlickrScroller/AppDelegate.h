@@ -9,6 +9,7 @@
 @import UIKit;
 #import "DebugHelpers.h"
 #import "BUtil.h"
+#import "TranslationStrings.h"
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
