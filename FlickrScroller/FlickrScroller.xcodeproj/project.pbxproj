@@ -20,6 +20,8 @@
 		591E9E2D1D5EFB2E0042A28A /* FlickrSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E2C1D5EFB2E0042A28A /* FlickrSearchResultsViewController.m */; };
 		591E9E311D5F0B240042A28A /* FlickrResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E301D5F0B240042A28A /* FlickrResult.m */; };
 		591E9E341D5F0F810042A28A /* FlickrThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E331D5F0F810042A28A /* FlickrThumbnailCell.m */; };
+		591E9E371D5F4F180042A28A /* SearchPhrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E361D5F4F180042A28A /* SearchPhrase.m */; };
+		591E9E3B1D5F5E330042A28A /* SearchPhraseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E3A1D5F5E330042A28A /* SearchPhraseCell.m */; };
 		95F73FE90B81B59BC69610B0 /* libPods-FlickrScroller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 381DC4FCB22A1C7AB4D38B7E /* libPods-FlickrScroller.a */; };
 		BA0DBC5E4152CB884DE5F59A /* libPods-FlickrScrollerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BDC777B2584C75232FB37D /* libPods-FlickrScrollerTests.a */; };
 /* End PBXBuildFile section */
@@ -72,6 +74,10 @@
 		591E9E301D5F0B240042A28A /* FlickrResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrResult.m; sourceTree = "<group>"; };
 		591E9E321D5F0F810042A28A /* FlickrThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrThumbnailCell.h; sourceTree = "<group>"; };
 		591E9E331D5F0F810042A28A /* FlickrThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrThumbnailCell.m; sourceTree = "<group>"; };
+		591E9E351D5F4F180042A28A /* SearchPhrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPhrase.h; sourceTree = "<group>"; };
+		591E9E361D5F4F180042A28A /* SearchPhrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPhrase.m; sourceTree = "<group>"; };
+		591E9E391D5F5E330042A28A /* SearchPhraseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPhraseCell.h; sourceTree = "<group>"; };
+		591E9E3A1D5F5E330042A28A /* SearchPhraseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPhraseCell.m; sourceTree = "<group>"; };
 		6ADD9098FD9119CFFAFF7BC3 /* Pods-FlickrScrollerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerUITests/Pods-FlickrScrollerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA269F5C46BD5684BB74155B /* Pods-FlickrScrollerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6582BA576B9F7EFB10FD5E2 /* Pods-FlickrScrollerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,9 +140,10 @@
 		591E9DEC1D5EECA10042A28A /* FlickrScroller */ = {
 			isa = PBXGroup;
 			children = (
+				591E9E381D5F5E190042A28A /* TableView Cells */,
 				591E9E221D5EF10F0042A28A /* Utils */,
 				591E9E2E1D5F0B050042A28A /* Model */,
-				591E9E211D5EF0930042A28A /* Collection View Cells */,
+				591E9E211D5EF0930042A28A /* CollectionView Cells */,
 				591E9E201D5EF08C0042A28A /* View Controllers */,
 				591E9DF01D5EECA10042A28A /* AppDelegate.h */,
 				591E9E2A1D5EF54D0042A28A /* TranslationStrings.h */,
@@ -188,13 +195,13 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		591E9E211D5EF0930042A28A /* Collection View Cells */ = {
+		591E9E211D5EF0930042A28A /* CollectionView Cells */ = {
 			isa = PBXGroup;
 			children = (
 				591E9E321D5F0F810042A28A /* FlickrThumbnailCell.h */,
 				591E9E331D5F0F810042A28A /* FlickrThumbnailCell.m */,
 			);
-			name = "Collection View Cells";
+			name = "CollectionView Cells";
 			sourceTree = "<group>";
 		};
 		591E9E221D5EF10F0042A28A /* Utils */ = {
@@ -212,8 +219,19 @@
 			children = (
 				591E9E2F1D5F0B240042A28A /* FlickrResult.h */,
 				591E9E301D5F0B240042A28A /* FlickrResult.m */,
+				591E9E351D5F4F180042A28A /* SearchPhrase.h */,
+				591E9E361D5F4F180042A28A /* SearchPhrase.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		591E9E381D5F5E190042A28A /* TableView Cells */ = {
+			isa = PBXGroup;
+			children = (
+				591E9E391D5F5E330042A28A /* SearchPhraseCell.h */,
+				591E9E3A1D5F5E330042A28A /* SearchPhraseCell.m */,
+			);
+			name = "TableView Cells";
 			sourceTree = "<group>";
 		};
 		941092580732C502AA44D813 /* Pods */ = {
@@ -506,7 +524,9 @@
 				591E9E291D5EF4F90042A28A /* SearchViewController.m in Sources */,
 				591E9E311D5F0B240042A28A /* FlickrResult.m in Sources */,
 				591E9E261D5EF10F0042A28A /* BUtil.m in Sources */,
+				591E9E3B1D5F5E330042A28A /* SearchPhraseCell.m in Sources */,
 				591E9DEF1D5EECA10042A28A /* main.m in Sources */,
+				591E9E371D5F4F180042A28A /* SearchPhrase.m in Sources */,
 				591E9E341D5F0F810042A28A /* FlickrThumbnailCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
