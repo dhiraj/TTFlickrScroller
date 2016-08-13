@@ -10,5 +10,5 @@
 #import "FlickrResult.h"
 
 @interface FlickrThumbnailCell : UICollectionViewCell
-- (void) updateResultTo:(FlickrResult *)result;
+- (void) updateResultTo:(nonnull FlickrResult *)result;
 @end
