@@ -23,7 +23,7 @@
 @end
 
 #define CELLCLASS @"CELLCLASS"
-#define CELLSPACING 0.5f
+#define CELLSPACING 1.0f
 #define PAGESIZE @"20"
 @implementation FlickrSearchResultsViewController
 #pragma mark - Private
@@ -37,8 +37,7 @@
     }];
     DLog("Adding %d results, total:%d",arrMoreResults.count,self.arrResults.count + arrMoreResults.count);
     [self.arrResults addObjectsFromArray:arrMoreResults];
-    [self.collectionView reloadData];
-//    [self.collectionView insertItemsAtIndexPaths:ipaths];
+    [self.collectionView insertItemsAtIndexPaths:ipaths];
 }
 - (void) loadNextPage{
     if (self.hasMaxed || self.loadingPage) {
@@ -55,6 +54,7 @@
                                     ,[NSURLQueryItem queryItemWithName:@"nojsoncallback" value:@"1"]
                                     ,[NSURLQueryItem queryItemWithName:@"extras" value:@"url_q"]
                                     ,[NSURLQueryItem queryItemWithName:@"text" value:self.searchPhrase]
+                                    ,[NSURLQueryItem queryItemWithName:@"safe_search" value:@"1"]
                                     ,[NSURLQueryItem queryItemWithName:@"page" value:@(self.page).stringValue]
                                     ] mutableCopy];
     NSURLComponents * components = [NSURLComponents componentsWithString:@"https://api.flickr.com/services/rest/"];
@@ -122,6 +122,7 @@
 }
 - (void) viewDidLoad{
     [super viewDidLoad];
+    self.title = self.searchPhrase;
     self.arrResults = [NSMutableArray array];
     self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
@@ -147,6 +148,11 @@
 }
 
 #pragma mark - UICollectionView
+- (void) scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+    if (targetContentOffset->y + CGRectGetHeight(scrollView.bounds) >= scrollView.contentSize.height - 100) {
+        [self loadNextPage];
+    }
+}
 - (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
     return UIEdgeInsetsMake(CELLSPACING, CELLSPACING, CELLSPACING, CELLSPACING);
 }
