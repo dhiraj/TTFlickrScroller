@@ -19,6 +19,7 @@
 @property (nonatomic,strong) UISearchBar * searchBar;
 @property (nonatomic,strong) NSString * filepathSearches;
 @property (nonatomic,strong) NSSortDescriptor * descDateDescending;
+@property (nonatomic,strong) NSIndexSet * isetFilteredSearches;
 @end
 
 
@@ -48,20 +49,25 @@
     NSInteger index = [self.arrPastSearches indexOfObject:testPhrase];
     if (index != NSNotFound) {
         [self.arrPastSearches removeObjectAtIndex:index];
-        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     [self.arrPastSearches insertObject:testPhrase atIndex:0];
-    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self saveSearches];
+    [self reloadTableView];
 }
 - (void) deleteSearchPhraseAtIndex:(NSIndexPath *)indexPath{
+    if (self.isetFilteredSearches) {
+        //We need to first translate filtered indexpath to actual index path
+        SearchPhrase * phrase = [self itemAtIndexPath:indexPath];
+        NSInteger index = [self.arrPastSearches indexOfObject:phrase];
+        indexPath = [NSIndexPath indexPathForRow:index inSection:0];
+    }
     if (indexPath.row > self.arrPastSearches.count) {
         DLog(@"Invalid index for searches: %@",indexPath);
         return;
     }
     [self.arrPastSearches removeObjectAtIndex:indexPath.row];
     [self saveSearches];
-    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self reloadTableView];
 }
 - (void) performSearchWithPhrase:(NSString *)searchPhrase{
     DLog(@"Begin search with phrase:%@",searchPhrase);
@@ -76,11 +82,34 @@
     [self.searchBar resignFirstResponder];
     NSString * searchPhrase = self.searchBar.text;
     self.searchBar.text = nil;
+    self.isetFilteredSearches = nil;
     [self performSearchWithPhrase:searchPhrase];
 }
 - (void) performSearchFromSearchPhrase:(SearchPhrase *)searchPhrase{
     self.searchBar.text = searchPhrase.phrase;
     [self performSearchFromSearchBarText];
+}
+- (void) filterSearchWithText:(nullable NSString *)filter{
+    if (![BUtil isValidString:filter]) {
+        self.isetFilteredSearches = nil;
+    }
+    else{
+        self.isetFilteredSearches = [self.arrPastSearches indexesOfObjectsPassingTest:^BOOL(SearchPhrase * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [obj.phrase rangeOfString:filter options:NSCaseInsensitiveSearch].location != NSNotFound;
+        }];
+    }
+    [self reloadTableView];
+}
+- (SearchPhrase *) itemAtIndexPath:(NSIndexPath *)indexPath{
+    SearchPhrase * item = nil;
+    if (self.isetFilteredSearches) {
+        NSArray * filtered = [self.arrPastSearches objectsAtIndexes:self.isetFilteredSearches];
+        item = filtered[indexPath.row];
+    }
+    else{
+        item = self.arrPastSearches[indexPath.row];
+    }
+    return item;
 }
 #pragma mark - Actions
 - (void) navbarSearchButtonTapped:(id)sender{
@@ -105,7 +134,7 @@
     self.tableView.delegate = self;
     self.tableView.rowHeight = 44.0f;
     [self.tableView registerClass:[SearchPhraseCell class] forCellReuseIdentifier:SINGLECELL];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:self.tableView];
 }
 - (void) viewWillLayoutSubviews{
@@ -120,13 +149,14 @@
     }
 }
 
-
 #pragma mark - UISearchBar
 - (void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
     if ([BUtil isValidString:searchText]) {
         self.barbuttonSearch.enabled = YES;
+        [self filterSearchWithText:searchText];
     }
     else{
+        [self filterSearchWithText:nil];
         self.barbuttonSearch.enabled = NO;
     }
 }
@@ -139,11 +169,14 @@
     [self.searchBar resignFirstResponder];
 }
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if (self.isetFilteredSearches) {
+        return self.isetFilteredSearches.count;
+    }
     return self.arrPastSearches.count;
 }
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     SearchPhraseCell * cell = [self.tableView dequeueReusableCellWithIdentifier:SINGLECELL];
-    SearchPhrase * item = self.arrPastSearches[indexPath.row];
+    SearchPhrase * item = [self itemAtIndexPath:indexPath];
     [cell updateSearchPhraseTo:item];
     return cell;
 }
@@ -153,7 +186,7 @@
     }
 }
 - (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    SearchPhrase * item = self.arrPastSearches[indexPath.row];
+    SearchPhrase * item = [self itemAtIndexPath:indexPath];
     [self performSearchFromSearchPhrase:item];
 }
 
