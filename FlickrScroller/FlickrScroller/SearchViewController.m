@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "AppDelegate.h"
+#import "FlickrSearchResultsViewController.h"
 
 @interface SearchViewController ()<UISearchBarDelegate>
 @property (nonatomic,strong) UITableView * tableView;
@@ -20,7 +21,10 @@
 - (void) performSearchWithPhrase:(NSString *)searchPhrase{
     DLog(@"Begin search with phrase:%@",searchPhrase);
     //Add into searches array
+    
     //Load results view controller
+    FlickrSearchResultsViewController * vc = [[FlickrSearchResultsViewController alloc] initWithSearchPhrase:searchPhrase];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (void) performSearchFromSearchBarText{
     [self.searchBar resignFirstResponder];
