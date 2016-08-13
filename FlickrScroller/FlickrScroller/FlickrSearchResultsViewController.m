@@ -11,7 +11,7 @@
 #import "FlickrResult.h"
 #import "FlickrThumbnailCell.h"
 
-@interface FlickrSearchResultsViewController()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface FlickrSearchResultsViewController()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,copy) NSString * searchPhrase;
 @property (nonatomic,strong) NSMutableArray <FlickrResult *>* arrResults;
 @property (nonatomic,assign) NSInteger page;
@@ -23,9 +23,12 @@
 @end
 
 #define CELLCLASS @"CELLCLASS"
+#define CELLSPACING 0.5f
 @implementation FlickrSearchResultsViewController
 #pragma mark - Private
-
+- (void) loadNextPage{
+    
+}
 #pragma mark - LifeCycle
 - (nullable instancetype) initWithSearchPhrase:(nonnull NSString *) searchPhrase {
     self = [super initWithNibName:nil bundle:nil];
@@ -41,7 +44,7 @@
     [super viewDidLoad];
     self.collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
     self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:self.collectionViewLayout];
-    self.collectionViewLayout.minimumInteritemSpacing = 0.5f;
+    self.collectionViewLayout.minimumInteritemSpacing = CELLSPACING;
     self.collectionViewLayout.minimumLineSpacing = 1.0f;
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -50,5 +53,27 @@
     self.collectionView.clipsToBounds = YES;
     [self.view addSubview:self.collectionView];
 }
+- (void) viewWillLayoutSubviews{
+    [super viewWillLayoutSubviews];
+    CGRect mybounds = self.view.bounds;
+    self.collectionView.frame = mybounds;
+    CGFloat width = CGRectGetWidth(mybounds);
+    CGFloat numColums = 3.0f;
+    CGFloat gap = (CELLSPACING * numColums) - CELLSPACING;
+    CGFloat cellWidth = (width / numColums) - gap;
+    self.collectionViewLayout.itemSize = CGSizeMake(cellWidth, cellWidth);
+}
+
 #pragma mark - UICollectionView
+- (UIEdgeInsets) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
+    return UIEdgeInsetsMake(CELLSPACING, CELLSPACING, CELLSPACING, CELLSPACING);
+}
+- (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.arrResults.count;
+}
+- (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    FlickrThumbnailCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELLCLASS forIndexPath:indexPath];
+    [cell updateResultTo:self.arrResults[indexPath.row]];
+    return cell;
+}
 @end
