@@ -17,6 +17,21 @@
     }
     return self;
 }
+- (instancetype) initWithCoder:(NSCoder *)aDecoder{
+    NSString * phrase = [aDecoder decodeObjectOfClass:[NSString class] forKey:@"phrase"];
+    self = [self initWithSearchPhrase:phrase];
+    if (self) {
+        _lastUsed = [aDecoder decodeObjectOfClass:[NSDate class] forKey:@"lastUsed"];
+    }
+    return self;
+}
+- (void) encodeWithCoder:(NSCoder *)aCoder{
+    [aCoder encodeObject:self.phrase forKey:@"phrase"];
+    [aCoder encodeObject:self.lastUsed forKey:@"lastUsed"];
+}
++ (BOOL) supportsSecureCoding{
+    return YES;
+}
 - (NSUInteger) hash{
     return self.phrase.hash;
 }

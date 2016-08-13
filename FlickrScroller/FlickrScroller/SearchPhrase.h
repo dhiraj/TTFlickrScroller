@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SearchPhrase : NSObject
+@interface SearchPhrase : NSObject<NSSecureCoding>
 @property (nonnull, nonatomic, copy, readonly) NSString * phrase;
 @property (nonnull, nonatomic, strong, readonly) NSDate * lastUsed;
 - (nonnull instancetype) initWithSearchPhrase:(nonnull NSString *)searchPhrase NS_DESIGNATED_INITIALIZER;

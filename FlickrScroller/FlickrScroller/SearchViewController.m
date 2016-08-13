@@ -29,23 +29,39 @@
     [self.tableView reloadData];
 }
 - (void) saveSearches{
-    
+    NSFileManager * fileMan = [NSFileManager defaultManager];
+    [fileMan removeItemAtPath:self.filepathSearches error:nil];
+    BOOL success = [NSKeyedArchiver archiveRootObject:self.arrPastSearches toFile:self.filepathSearches];
+    DLog(@"Wrote to file:%d",success);
 }
 - (void) loadSearches{
-    
+    NSFileManager * fileMan = [NSFileManager defaultManager];
+    if ([fileMan fileExistsAtPath:self.filepathSearches]) {
+        self.arrPastSearches = [NSKeyedUnarchiver unarchiveObjectWithFile:self.filepathSearches];
+    }
+    else{
+        self.arrPastSearches = [NSMutableArray array];
+    }
 }
 - (void) addSearchPhraseText:(NSString *)searchText{
     SearchPhrase * testPhrase = [[SearchPhrase alloc] initWithSearchPhrase:searchText];
     NSInteger index = [self.arrPastSearches indexOfObject:testPhrase];
     if (index != NSNotFound) {
         [self.arrPastSearches removeObjectAtIndex:index];
+        [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
     [self.arrPastSearches insertObject:testPhrase atIndex:0];
+    [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
     [self saveSearches];
-    [self reloadTableView];
 }
-- (void) deleteSearchPhrase:(SearchPhrase *)phrase{
-    
+- (void) deleteSearchPhraseAtIndex:(NSIndexPath *)indexPath{
+    if (indexPath.row > self.arrPastSearches.count) {
+        DLog(@"Invalid index for searches: %@",indexPath);
+        return;
+    }
+    [self.arrPastSearches removeObjectAtIndex:indexPath.row];
+    [self saveSearches];
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 - (void) performSearchWithPhrase:(NSString *)searchPhrase{
     DLog(@"Begin search with phrase:%@",searchPhrase);
@@ -62,6 +78,10 @@
     self.searchBar.text = nil;
     [self performSearchWithPhrase:searchPhrase];
 }
+- (void) performSearchFromSearchPhrase:(SearchPhrase *)searchPhrase{
+    self.searchBar.text = searchPhrase.phrase;
+    [self performSearchFromSearchBarText];
+}
 #pragma mark - Actions
 - (void) navbarSearchButtonTapped:(id)sender{
     [self performSearchFromSearchBarText];
@@ -72,7 +92,7 @@
     self.descDateDescending = [NSSortDescriptor sortDescriptorWithKey:@"lastUsed" ascending:NO];
     self.filepathSearches = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"searches"] stringByAppendingPathExtension:@"plist"];
     self.title = S_SearchFlickr;
-    self.arrPastSearches = [NSMutableArray array];
+    [self loadSearches];
     self.barbuttonSearch = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(navbarSearchButtonTapped:)];
     self.barbuttonSearch.enabled = NO;
     self.navigationItem.rightBarButtonItem = self.barbuttonSearch;
@@ -86,9 +106,7 @@
     self.tableView.rowHeight = 44.0f;
     [self.tableView registerClass:[SearchPhraseCell class] forCellReuseIdentifier:SINGLECELL];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.allowsSelection = NO;
     [self.view addSubview:self.tableView];
-    [self loadSearches];
 }
 - (void) viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
@@ -96,7 +114,6 @@
 }
 - (void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    DLog(@"");
     NSArray * ipaths = [self.tableView indexPathsForSelectedRows];
     if ([BUtil isValidArray:ipaths]) {
         [self.tableView deselectRowAtIndexPath:ipaths[0] animated:YES];
@@ -129,6 +146,15 @@
     SearchPhrase * item = self.arrPastSearches[indexPath.row];
     [cell updateSearchPhraseTo:item];
     return cell;
+}
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self deleteSearchPhraseAtIndex:indexPath];
+    }
+}
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    SearchPhrase * item = self.arrPastSearches[indexPath.row];
+    [self performSearchFromSearchPhrase:item];
 }
 
 @end
