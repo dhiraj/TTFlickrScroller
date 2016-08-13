@@ -17,6 +17,7 @@
 		591E9E131D5EECA10042A28A /* FlickrScrollerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E121D5EECA10042A28A /* FlickrScrollerUITests.m */; };
 		591E9E261D5EF10F0042A28A /* BUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E241D5EF10F0042A28A /* BUtil.m */; };
 		591E9E291D5EF4F90042A28A /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E281D5EF4F90042A28A /* SearchViewController.m */; };
+		591E9E2D1D5EFB2E0042A28A /* FlickrSearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E2C1D5EFB2E0042A28A /* FlickrSearchResultsViewController.m */; };
 		95F73FE90B81B59BC69610B0 /* libPods-FlickrScroller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 381DC4FCB22A1C7AB4D38B7E /* libPods-FlickrScroller.a */; };
 		BA0DBC5E4152CB884DE5F59A /* libPods-FlickrScrollerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BDC777B2584C75232FB37D /* libPods-FlickrScrollerTests.a */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		591E9E271D5EF4F90042A28A /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		591E9E281D5EF4F90042A28A /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		591E9E2A1D5EF54D0042A28A /* TranslationStrings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TranslationStrings.h; sourceTree = "<group>"; };
+		591E9E2B1D5EFB2E0042A28A /* FlickrSearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrSearchResultsViewController.h; sourceTree = "<group>"; };
+		591E9E2C1D5EFB2E0042A28A /* FlickrSearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrSearchResultsViewController.m; sourceTree = "<group>"; };
 		6ADD9098FD9119CFFAFF7BC3 /* Pods-FlickrScrollerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerUITests/Pods-FlickrScrollerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA269F5C46BD5684BB74155B /* Pods-FlickrScrollerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6582BA576B9F7EFB10FD5E2 /* Pods-FlickrScrollerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				591E9DF41D5EECA10042A28A /* ViewController.m */,
 				591E9E271D5EF4F90042A28A /* SearchViewController.h */,
 				591E9E281D5EF4F90042A28A /* SearchViewController.m */,
+				591E9E2B1D5EFB2E0042A28A /* FlickrSearchResultsViewController.h */,
+				591E9E2C1D5EFB2E0042A28A /* FlickrSearchResultsViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591E9E2D1D5EFB2E0042A28A /* FlickrSearchResultsViewController.m in Sources */,
 				591E9DF51D5EECA10042A28A /* ViewController.m in Sources */,
 				591E9DF21D5EECA10042A28A /* AppDelegate.m in Sources */,
 				591E9E291D5EF4F90042A28A /* SearchViewController.m in Sources */,
