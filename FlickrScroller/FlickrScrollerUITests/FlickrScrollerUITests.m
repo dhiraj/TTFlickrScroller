@@ -38,11 +38,15 @@
     sleep(1);
     XCUIElement * searchField = app.navigationBars[@"Search Flickr"].searchFields[@"Search Flickr"];
     [searchField tap];
+    NSPredicate * hasFocus = [NSPredicate predicateWithFormat:@"hasKeyboardFocus == true"];
+    NSPredicate * notHittable = [NSPredicate predicateWithFormat:@"hittable == false"];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"Kittens\n"];
-    XCTAssertTrue(app.staticTexts[@"Loading..."].hittable); //Loading should initially be visible
-    sleep(2.0);
-    XCTAssertFalse(app.staticTexts[@"Loading..."].hittable); //And then be hidden when results are available
-    for (NSUInteger i = 0; i <10; i++) { //Simulate scrolling through the result x times
+    XCUIElement * labelLoading = app.staticTexts[@"Loading..."];
+    [self expectationForPredicate:notHittable evaluatedWithObject:labelLoading handler:nil];//Loading should be hidden when results are available
+
+    for (NSUInteger i = 0; i <1; i++) { //Simulate scrolling through the result x times
         [app swipeUp];
     }
     XCUIElement * backButton = app.navigationBars.buttons[@"Search Flickr"];
@@ -50,28 +54,43 @@
     
     //Test the search phrase adding, tapping, filtering and deleting
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
+    [searchField typeText:@"  \n"]; //Should get trimmed and nothing should happen
     [searchField typeText:@"One\n"]; //Add One
     [backButton tap];
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"two\n"]; //Add Two
     [backButton tap];
     [app.tables.staticTexts[@"Two"] tap]; //Tap on earlier added two phrase
     [backButton tap];
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"two"]; //Filter to show two
     [app.tables.staticTexts[@"Two"] tap]; //Tap on the filtered two phrase
     [backButton tap];
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"three"];
     [app.keyboards.buttons[@"Search"] tap]; //Search button on keyboard should work
     [backButton tap];
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"four\n"]; //Add four
     [backButton tap];
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"five\n"]; //Add five
     [backButton tap];
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"six"];
     [app.navigationBars.buttons[@"Search"] tap]; //Test search by uibarbuttonitem search
     [backButton tap];
@@ -82,6 +101,8 @@
     [app.tables.cells.staticTexts[@"Four"] swipeLeft];
     [app.tables.buttons[@"Delete"] tap]; //Delete Four
     [searchField tap];
+    [self expectationForPredicate:hasFocus evaluatedWithObject:searchField handler:nil];
+    [self waitForExpectationsWithTimeout:5 handler:nil];
     [searchField typeText:@"five"]; //Filter to show Five
     [app.tables.cells.staticTexts[@"Five"] swipeLeft]; //Swipe left on the filtered Five cell
     [app.tables.buttons[@"Delete"] tap]; //And delete it
