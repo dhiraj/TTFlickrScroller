@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "FlickrResult.h"
+#import "BUtil.h"
 
 @interface FlickrScrollerTests : XCTestCase
 
@@ -24,9 +26,35 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testInvalidJSONObject {
+    NSBundle * testBundle = [NSBundle bundleForClass:[self class]];
+    NSURL * urlInvalidObject = [testBundle URLForResource:@"invalidflickrobject" withExtension:@"json"];
+    NSData * invalidJSON = [NSData dataWithContentsOfURL:urlInvalidObject];
+    NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:invalidJSON options:0 error:nil];
+    FlickrResult * result = [FlickrResult resultWithDictionary:dict];
+    XCTAssertNil(result);
+}
+- (void)testValidJSONObject {
+    NSBundle * testBundle = [NSBundle bundleForClass:[self class]];
+    NSURL * urlInvalidObject = [testBundle URLForResource:@"validflickrobject" withExtension:@"json"];
+    NSData * invalidJSON = [NSData dataWithContentsOfURL:urlInvalidObject];
+    NSDictionary * dict = [NSJSONSerialization JSONObjectWithData:invalidJSON options:0 error:nil];
+    FlickrResult * result = [FlickrResult resultWithDictionary:dict];
+    XCTAssertNotNil(result);
+    XCTAssertTrue([result.url_q isEqualToString:@"https://farm9.staticflickr.com/8477/28350483854_d5a7279e68_q.jpg"]);
+}
+- (void)testFlickrObjectArray {
+    NSBundle * testBundle = [NSBundle bundleForClass:[self class]];
+    NSURL * urlInvalidObject = [testBundle URLForResource:@"results30" withExtension:@"json"];
+    NSData * invalidJSON = [NSData dataWithContentsOfURL:urlInvalidObject];
+    NSArray * arr = [NSJSONSerialization JSONObjectWithData:invalidJSON options:0 error:nil];
+    XCTAssertTrue([BUtil isValidArray:arr]);
+    XCTAssertEqual(arr.count, 30);
+    NSArray * arrResults = [FlickrResult resultsFromArrayOfDictionaries:arr];
+    XCTAssertTrue([BUtil isValidArray:arrResults]);
+    XCTAssertEqual(arrResults.count, 29); //One object doesn't have url_q
+    id result = arrResults[0];
+    XCTAssertTrue([result isKindOfClass:[FlickrResult class]]);
 }
 
 - (void)testPerformanceExample {

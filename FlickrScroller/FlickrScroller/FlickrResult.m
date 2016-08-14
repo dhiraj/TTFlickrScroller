@@ -13,7 +13,7 @@
 + (nullable FlickrResult *) resultWithDictionary:(nonnull NSDictionary <NSString *,id>*)dictionary{
     FlickrResult * result = [[FlickrResult alloc] init];
     if (!result) {
-        DLog(@"Couldn't create nsobject");
+        DLog(@"Couldn't create nsobject?");
         return nil;
     }
     result.url_q = dictionary[@"url_q"];

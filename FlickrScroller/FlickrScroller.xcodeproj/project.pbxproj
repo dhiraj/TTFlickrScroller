@@ -22,6 +22,9 @@
 		591E9E341D5F0F810042A28A /* FlickrThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E331D5F0F810042A28A /* FlickrThumbnailCell.m */; };
 		591E9E371D5F4F180042A28A /* SearchPhrase.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E361D5F4F180042A28A /* SearchPhrase.m */; };
 		591E9E3B1D5F5E330042A28A /* SearchPhraseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 591E9E3A1D5F5E330042A28A /* SearchPhraseCell.m */; };
+		591E9E3F1D60430D0042A28A /* invalidflickrobject.json in Resources */ = {isa = PBXBuildFile; fileRef = 591E9E3C1D60430D0042A28A /* invalidflickrobject.json */; };
+		591E9E401D60430D0042A28A /* results30.json in Resources */ = {isa = PBXBuildFile; fileRef = 591E9E3D1D60430D0042A28A /* results30.json */; };
+		591E9E411D60430D0042A28A /* validflickrobject.json in Resources */ = {isa = PBXBuildFile; fileRef = 591E9E3E1D60430D0042A28A /* validflickrobject.json */; };
 		95F73FE90B81B59BC69610B0 /* libPods-FlickrScroller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 381DC4FCB22A1C7AB4D38B7E /* libPods-FlickrScroller.a */; };
 		BA0DBC5E4152CB884DE5F59A /* libPods-FlickrScrollerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D4BDC777B2584C75232FB37D /* libPods-FlickrScrollerTests.a */; };
 /* End PBXBuildFile section */
@@ -78,6 +81,9 @@
 		591E9E361D5F4F180042A28A /* SearchPhrase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPhrase.m; sourceTree = "<group>"; };
 		591E9E391D5F5E330042A28A /* SearchPhraseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchPhraseCell.h; sourceTree = "<group>"; };
 		591E9E3A1D5F5E330042A28A /* SearchPhraseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchPhraseCell.m; sourceTree = "<group>"; };
+		591E9E3C1D60430D0042A28A /* invalidflickrobject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = invalidflickrobject.json; sourceTree = "<group>"; };
+		591E9E3D1D60430D0042A28A /* results30.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = results30.json; sourceTree = "<group>"; };
+		591E9E3E1D60430D0042A28A /* validflickrobject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = validflickrobject.json; sourceTree = "<group>"; };
 		6ADD9098FD9119CFFAFF7BC3 /* Pods-FlickrScrollerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerUITests/Pods-FlickrScrollerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		BA269F5C46BD5684BB74155B /* Pods-FlickrScrollerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.release.xcconfig"; sourceTree = "<group>"; };
 		C6582BA576B9F7EFB10FD5E2 /* Pods-FlickrScrollerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlickrScrollerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlickrScrollerTests/Pods-FlickrScrollerTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +173,7 @@
 		591E9E061D5EECA10042A28A /* FlickrScrollerTests */ = {
 			isa = PBXGroup;
 			children = (
+				591E9E421D6043130042A28A /* json */,
 				591E9E071D5EECA10042A28A /* FlickrScrollerTests.m */,
 				591E9E091D5EECA10042A28A /* Info.plist */,
 			);
@@ -232,6 +239,16 @@
 				591E9E3A1D5F5E330042A28A /* SearchPhraseCell.m */,
 			);
 			name = "TableView Cells";
+			sourceTree = "<group>";
+		};
+		591E9E421D6043130042A28A /* json */ = {
+			isa = PBXGroup;
+			children = (
+				591E9E3C1D60430D0042A28A /* invalidflickrobject.json */,
+				591E9E3D1D60430D0042A28A /* results30.json */,
+				591E9E3E1D60430D0042A28A /* validflickrobject.json */,
+			);
+			name = json;
 			sourceTree = "<group>";
 		};
 		941092580732C502AA44D813 /* Pods */ = {
@@ -378,6 +395,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591E9E3F1D60430D0042A28A /* invalidflickrobject.json in Resources */,
+				591E9E401D60430D0042A28A /* results30.json in Resources */,
+				591E9E411D60430D0042A28A /* validflickrobject.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
