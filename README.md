@@ -31,3 +31,4 @@ Choices / Accommodations
     * Search history gets filtered when typing in the search bar. Filtered items can be tapped to search and swiped to be deleted
     * Search history items are sorted most recent to oldest
     * Tapping or re-searching for a search phrase moves it to the top of the history list; search phrases are de-duplicated.
+
