@@ -147,6 +147,11 @@
     if ([BUtil isValidArray:ipaths]) {
         [self.tableView deselectRowAtIndexPath:ipaths[0] animated:YES];
     }
+    if ([self tableView:self.tableView numberOfRowsInSection:0] == 0) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.searchBar becomeFirstResponder];
+        });
+    }
 }
 
 #pragma mark - UISearchBar
