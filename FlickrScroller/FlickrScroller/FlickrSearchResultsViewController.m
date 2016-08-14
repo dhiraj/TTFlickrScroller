@@ -36,7 +36,7 @@
         NSIndexPath * ipath = [NSIndexPath indexPathForRow:idx inSection:0];
         [ipaths addObject:ipath];
     }];
-    DLog("Adding %d results, total:%d",arrMoreResults.count,self.arrResults.count + arrMoreResults.count);
+    DLog("Adding %zd results, total:%zd",arrMoreResults.count,self.arrResults.count + arrMoreResults.count);
     [self.arrResults addObjectsFromArray:arrMoreResults];
     [self.collectionView insertItemsAtIndexPaths:ipaths];
 }

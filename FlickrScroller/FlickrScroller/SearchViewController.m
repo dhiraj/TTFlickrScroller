@@ -119,6 +119,7 @@
 
 #pragma mark - LifeCycle
 - (void) viewDidLoad{
+    [super viewDidLoad];
     self.descDateDescending = [NSSortDescriptor sortDescriptorWithKey:@"lastUsed" ascending:NO];
     self.filepathSearches = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"searches"] stringByAppendingPathExtension:@"plist"];
     self.title = S_SearchFlickr;
