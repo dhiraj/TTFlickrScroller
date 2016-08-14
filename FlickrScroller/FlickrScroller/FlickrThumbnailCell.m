@@ -22,7 +22,7 @@
         self.task = nil;
     }
     self.ivThumbnail.image = nil;
-    self.task = [[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:self.myResult.url_q] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    self.task = [[UIApplication app].sessionImages dataTaskWithURL:[NSURL URLWithString:self.myResult.url_q] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error) {
             if (error.code != -999) {
                 DLog(@"Error:%@ downloading thumbnail, response:%@",error,response);
