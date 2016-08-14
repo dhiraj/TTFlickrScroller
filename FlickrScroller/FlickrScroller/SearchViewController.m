@@ -80,9 +80,14 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 - (void) performSearchFromSearchBarText{
-    [self.searchBar resignFirstResponder];
     NSString * searchPhrase = self.searchBar.text;
+    searchPhrase = [searchPhrase stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
     self.searchBar.text = nil;
+    if (![BUtil isValidString:searchPhrase]) {
+        DLog(@"Invalid search text, returning!");
+        return;
+    }
+    [self.searchBar resignFirstResponder];
     self.barbuttonSearch.enabled = false;
     self.isetFilteredSearches = nil;
     [self performSearchWithPhrase:searchPhrase];
