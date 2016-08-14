@@ -34,6 +34,7 @@
     [fileMan removeItemAtPath:self.filepathSearches error:nil];
     BOOL success = [NSKeyedArchiver archiveRootObject:self.arrPastSearches toFile:self.filepathSearches];
     DLog(@"Wrote to file:%d",success);
+#pragma unused(success)
 }
 - (void) loadSearches{
     NSFileManager * fileMan = [NSFileManager defaultManager];
@@ -67,7 +68,7 @@
     }
     [self.arrPastSearches removeObjectAtIndex:indexPath.row];
     [self saveSearches];
-    [self reloadTableView];
+    [self filterSearchWithText:self.searchBar.text];
 }
 - (void) performSearchWithPhrase:(NSString *)searchPhrase{
     DLog(@"Begin search with phrase:%@",searchPhrase);
@@ -82,6 +83,7 @@
     [self.searchBar resignFirstResponder];
     NSString * searchPhrase = self.searchBar.text;
     self.searchBar.text = nil;
+    self.barbuttonSearch.enabled = false;
     self.isetFilteredSearches = nil;
     [self performSearchWithPhrase:searchPhrase];
 }
@@ -118,6 +120,7 @@
 
 #pragma mark - LifeCycle
 - (void) viewDidLoad{
+    [super viewDidLoad];
     self.descDateDescending = [NSSortDescriptor sortDescriptorWithKey:@"lastUsed" ascending:NO];
     self.filepathSearches = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0] stringByAppendingPathComponent:@"searches"] stringByAppendingPathExtension:@"plist"];
     self.title = S_SearchFlickr;
