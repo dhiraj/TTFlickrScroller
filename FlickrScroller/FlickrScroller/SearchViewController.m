@@ -82,6 +82,7 @@
     [self.searchBar resignFirstResponder];
     NSString * searchPhrase = self.searchBar.text;
     self.searchBar.text = nil;
+    self.barbuttonSearch.enabled = false;
     self.isetFilteredSearches = nil;
     [self performSearchWithPhrase:searchPhrase];
 }
