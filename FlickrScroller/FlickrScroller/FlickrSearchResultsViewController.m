@@ -62,6 +62,7 @@
                                     ,[NSURLQueryItem queryItemWithName:@"extras" value:@"url_q"]
                                     ,[NSURLQueryItem queryItemWithName:@"text" value:self.searchPhrase]
                                     ,[NSURLQueryItem queryItemWithName:@"safe_search" value:@"1"]
+                                    ,[NSURLQueryItem queryItemWithName:@"sort" value:@"relevance"]
                                     ,[NSURLQueryItem queryItemWithName:@"page" value:@(self.page).stringValue]
                                     ] mutableCopy];
     NSURLComponents * components = [NSURLComponents componentsWithString:@"https://api.flickr.com/services/rest/"];
