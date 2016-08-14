@@ -20,11 +20,12 @@
 
 @property (nonatomic,strong) UICollectionView * collectionView;
 @property (nonatomic,strong) UICollectionViewFlowLayout * collectionViewLayout;
+@property (nonatomic,strong) UILabel * labelLoading;
 @end
 
 #define CELLCLASS @"CELLCLASS"
 #define CELLSPACING 1.0f
-#define PAGESIZE @"20"
+#define PAGESIZE @"30"
 @implementation FlickrSearchResultsViewController
 #pragma mark - Private
 - (void) addIntoResults:(NSArray <FlickrResult *>*)arrMoreResults{
@@ -38,6 +39,12 @@
     DLog("Adding %d results, total:%d",arrMoreResults.count,self.arrResults.count + arrMoreResults.count);
     [self.arrResults addObjectsFromArray:arrMoreResults];
     [self.collectionView insertItemsAtIndexPaths:ipaths];
+}
+- (void) setMaxResults{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.hasMaxed = YES;
+        [self.collectionView reloadData];
+    });
 }
 - (void) loadNextPage{
     if (self.hasMaxed || self.loadingPage) {
@@ -64,12 +71,12 @@
     NSURLSessionDataTask * task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error && error.code != -999) {
             DLog(@"Caught error response, flagging as maxed");
-            self.hasMaxed = YES;
+            [self setMaxResults];
             return ;
         }
         if (![BUtil isValidDataObject:data]) {
             DLog(@"Invalid data object received, flagging as maxed");
-            self.hasMaxed = YES;
+            [self setMaxResults];
             return ;
         }
         NSError * errorSerialization = nil;
@@ -80,25 +87,25 @@
         }
         if(![BUtil isValidDictionary:dictResponse]){
             DLog(@"Error getting dictionary from response, flagging as maxed");
-            self.hasMaxed = YES;
+            [self setMaxResults];
             return ;
         }
         NSDictionary * dictPhotos = dictResponse[@"photos"];
         if (![BUtil isValidDictionary:dictPhotos]) {
             DLog(@"Error getting photos dictionary, flagging as maxed");
-            self.hasMaxed = YES;
+            [self setMaxResults];
             return ;
         }
         NSArray <NSDictionary <NSString *,id>*>* arrPhoto = dictPhotos[@"photo"];
         if (![BUtil isValidArray:arrPhoto]) {
             DLog(@"Couldn't get a valid photo dictionaries array!");
-            self.hasMaxed = YES;
+            [self setMaxResults];
             return ;
         }
         NSArray <FlickrResult *>* flickrResults = [FlickrResult resultsFromArrayOfDictionaries:arrPhoto];
         if (![BUtil isValidArray:flickrResults]) {
             DLog(@"Couldn't convert array of dictionaries into array of flickr results");
-            self.hasMaxed = YES;
+            [self setMaxResults];
             return ;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -134,12 +141,22 @@
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.clipsToBounds = YES;
     [self.view addSubview:self.collectionView];
+    
+    self.labelLoading = [[UILabel alloc] initWithFrame:CGRectZero];
+    self.labelLoading.text = S_Loading;
+    self.labelLoading.textColor = [UIColor colorWithWhite:0.4f alpha:1.0f];
+    self.labelLoading.highlightedTextColor = [UIColor whiteColor];
+    self.labelLoading.font = [UIFont systemFontOfSize:36.0f];
+    self.labelLoading.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:self.labelLoading];
+
     [self loadNextPage];
 }
 - (void) viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
     CGRect mybounds = self.view.bounds;
     self.collectionView.frame = mybounds;
+    self.labelLoading.frame = mybounds; //Label will center across the whole bounds
     CGFloat width = CGRectGetWidth(mybounds);
     CGFloat numColums = 3.0f;
     CGFloat gap = ((CELLSPACING * 0.5f) * numColums);
@@ -157,7 +174,17 @@
     return UIEdgeInsetsMake(CELLSPACING, CELLSPACING, CELLSPACING, CELLSPACING);
 }
 - (NSInteger) collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.arrResults.count;
+    NSUInteger count = self.arrResults.count;
+    if (count > 0) {
+        self.labelLoading.hidden = YES;
+    }
+    else if (!self.hasMaxed){
+        self.labelLoading.text = S_Loading;
+    }
+    else if (self.hasMaxed){
+        self.labelLoading.text = S_NoResultsFound;
+    }
+    return count;
 }
 - (UICollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     FlickrThumbnailCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CELLCLASS forIndexPath:indexPath];

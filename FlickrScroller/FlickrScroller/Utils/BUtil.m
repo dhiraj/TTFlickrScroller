@@ -104,35 +104,6 @@
 + (UINavigationController *)navigationControllerWithRoot:(UIViewController *)controller{
     return [[UINavigationController alloc] initWithRootViewController:controller];
 }
-+ (UILabel *) uiLabelWithText:(NSString *)string addToView:(UIView *)parent{
-    UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
-    label.text = string;
-    label.textColor = [UIColor colorWithWhite:0.1 alpha:1.0f];
-    label.highlightedTextColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:11.0f];
-    label.textAlignment = NSTextAlignmentLeft;
-    label.numberOfLines = 2;
-    label.lineBreakMode = NSLineBreakByWordWrapping;
-    [parent addSubview:label];
-#ifdef USE_TEST_COLORS
-    int color = arc4random_uniform(3);
-    switch (color) {
-        case 0:
-            label.backgroundColor = COLOR_TEST_RED;
-            break;
-        case 1:
-            label.backgroundColor = COLOR_TEST_BLUE;
-            break;
-        case 2:
-            label.backgroundColor = COLOR_TEST_GREEN;
-            break;
-            
-        default:
-            break;
-    }
-#endif
-    return label;
-}
 + (BOOL) string:(NSString *)stringA isSameAs:(NSString *)stringB{
     return [stringA compare:stringB options:NSCaseInsensitiveSearch] == NSOrderedSame;
 }

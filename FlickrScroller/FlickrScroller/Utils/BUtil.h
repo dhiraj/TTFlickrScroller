@@ -37,7 +37,6 @@
 + (CGFloat) oneFourthOf:(CGFloat)full;
 + (CGFloat) oneFifthOf:(CGFloat)full;
 + (nonnull UINavigationController *)navigationControllerWithRoot:(nonnull UIViewController *)controller;
-+ (nonnull UILabel *) uiLabelWithText:(nullable NSString *)string addToView:(nullable UIView *)parent;
 + (BOOL) string:(nonnull NSString *)stringA isSameAs:(nonnull NSString *)stringB;
 + (BOOL) urlRequest:(nonnull NSURLRequest *)request1 hasSameURLAs:(nonnull NSURLRequest *)request2;
 @end
